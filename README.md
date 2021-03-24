@@ -103,3 +103,8 @@ $ cd hello_rust
 $ rebar3 new rust_nif my
 ...........................
 ```
+
+## Reference
+
+* [erbloom](https://github.com/Vonmo/erbloom)
+* [rebar3](https://rebar3.readme.io/docs/using-templates)
