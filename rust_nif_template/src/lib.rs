@@ -1,13 +1,12 @@
 extern crate core;
 extern crate rustler;
 extern crate serde;
-extern crate ternary_tree;
 mod atoms;
 mod options;
 mod nif;
 // define nif api
 rustler::init!(
-    "{{name}}",
+    "{{name}}_nif",
     [
         nif::new,
         nif::clear,

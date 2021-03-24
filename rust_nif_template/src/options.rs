@@ -12,7 +12,7 @@ pub struct Nif{{name}}Options {
 
 impl Default for Nif{{name}}Options {
     fn default() -> Nif{{name}}Options {
-        MatcherOptions {
+        Nif{{name}}Options {
             bitmap_size: None,
             items_count: None,
             capacity: None,

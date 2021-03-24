@@ -13,8 +13,8 @@ struct Nif{{name}}{
 }
 impl Nif{{name}}{
     // create
-    fn new(_: MyNifOptions) -> Result<Self, String>{
-        Ok(Nif{{name}}{data: vec![])
+    fn new(_: Nif{{name}}Options) -> Result<Self, String>{
+        Ok(Nif{{name}}{data: vec![]})
     }
     // clear
     fn clear(&mut self) {
@@ -87,9 +87,9 @@ fn push<'a>(env: Env<'a>, resource: ResourceArc<Nif{{name}}Resource>, msg: LazyB
    Ok(ok().encode(env)) 
 }
 #[rustler::nif]
-fn pop<'a>(env: Env<'a>, resource: ResourceArc<Nif{{name}}Resource>, msg: LazyBinary<'a>) -> NifResult<Term<'a>> {
+fn pop<'a>(env: Env<'a>, resource: ResourceArc<Nif{{name}}Resource>) -> NifResult<Term<'a>> {
     let mut rs = resource.write();
-    let p = rs.pop(&msg);
+    let p = rs.pop();
    Ok(p.encode(env)) 
 }
 #[rustler::nif]
