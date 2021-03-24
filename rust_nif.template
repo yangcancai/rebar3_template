@@ -1,0 +1,16 @@
+{description, "A basic Common Rust nif project for an OTP application"}.
+{variables, [
+    {name, "rust_nif", "Name of the Rust nif, prepended to the dir crates/{{name}}"}
+]}.
+{dir, "crates/{{name}}"}.
+{dir, ".cargo"}.
+{dir, "crates/{{name}}/src"}.
+{file, "rust_nif_template/.cargo/config", "{{apps_dir}}/../.cargo/config"}.
+{template, "rust_nif_template/Cargo.toml", "{{apps_dir}}/../crates/{{name}}/Cargo.toml"}.
+{template, "rust_nif_template/Cargo.lock", "{{apps_dir}}/../crates/{{name}}/Cargo.lock"}.
+{template, "rust_nif_template/src/atoms.rs", "{{apps_dir}}/../crates/{{name}}/src/atoms.rs"}.
+{template, "rust_nif_template/src/lib.rs", "{{apps_dir}}/../crates/{{name}}/src/lib.rs"}.
+{template, "rust_nif_template/src/nif.rs", "{{apps_dir}}/../crates/{{name}}/src/nif.rs"}.
+{template, "rust_nif_template/src/options.rs", "{{apps_dir}}/../crates/{{name}}/src/options.rs"}.
+{template, "rust_nif_template/build.rs", "{{apps_dir}}/../crates/{{name}}/build.rs"}.
+{template, "rust_nif.erl", "{{apps_dir}}/src/{{name}}.erl"}.
