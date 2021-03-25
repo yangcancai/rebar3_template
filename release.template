@@ -1,0 +1,77 @@
+{description, "A basic Common release project for an OTP application, command: "}.
+{variables, [
+    {name, "my_release", "Name of the project"},
+    {'NAME', "Upper of Name"},
+    {app_dir, ".", "Path of app"}
+]}.
+{dir, "{{name}}"}.
+{dir, "{{name}}/apps/{{name}}/src"}.
+{dir, "{{name}}/apps/{{name}}/include"}.
+{dir, "{{name}}/apps/{{name}}/priv"}.
+{dir, "{{name}}/scripts"}.
+{dir, "{{name}}/scripts/extensions"}.
+{dir, "{{name}}/scripts/hooks"}.
+{dir, "{{name}}/doc"}.
+{dir,"{{name}}/test"}.
+{dir,"{{name}}/test/eunit"}.
+{dir,"{{name}}/test/ct"}.
+
+%% test
+
+{file, "release_template/test/ct/ct.config","{{name}}/test/ct/ct.config"}.
+{file, "release_template/test/eunit/template_test.tpl","{{name}}/test/eunit/template_test.tpl"}.
+{template, "release_template/test/ct/release_template_ct.hrl","{{name}}/test/ct/{{name}}_ct.hrl"}.
+{template, "release_template/test/ct/release_template_SUITE.erl","{{name}}/test/ct/{{name}}_SUITE.erl"}.
+
+{file, "release_template/LICENSE","{{name}}/LICENSE"}.
+{template, "release_template/.gitignore","{{name}}/.gitignore"}.
+{file, "release_template/VERSION","{{name}}/VERSION"}.
+{file, "release_template/rebar3","{{name}}/rebar3"}.
+{chmod, "{{name}}/rebar3", 8#755}.
+{file, "release_template/Makefile","{{name}}/Makefile"}.
+{file, "release_template/Dockerfile","{{name}}/Dockerfile"}.
+%% scripts
+%% extensions
+{template, "release_template/scripts/extensions/reload","{{name}}/scripts/extensions/reload"}.
+{chmod, "{{name}}/scripts/extensions/reload", 8#700}.
+%% hooks
+{template, "release_template/scripts/hooks/post_install_upgrade.sh","{{name}}/scripts/hooks/post_install_upgrade.sh"}.
+{template, "release_template/scripts/hooks/post_start.sh","{{name}}/scripts/hooks/post_start.sh"}.
+{template, "release_template/scripts/hooks/post_stop.sh","{{name}}/scripts/hooks/post_stop.sh"}.
+{template, "release_template/scripts/hooks/pre_install_upgrade.sh","{{name}}/scripts/hooks/pre_install_upgrade.sh"}.
+{template, "release_template/scripts/hooks/pre_start.sh","{{name}}/scripts/hooks/pre_start.sh"}.
+{template, "release_template/scripts/hooks/pre_stop.sh","{{name}}/scripts/hooks/pre_stop.sh"}.
+
+{chmod, "{{name}}/scripts/hooks/post_install_upgrade.sh", 8#700}.
+{chmod, "{{name}}/scripts/hooks/post_start.sh", 8#700}.
+{chmod, "{{name}}/scripts/hooks/post_stop.sh", 8#700}.
+{chmod, "{{name}}/scripts/hooks/pre_install_upgrade.sh", 8#700}.
+{chmod, "{{name}}/scripts/hooks/pre_start.sh", 8#700}.
+{chmod, "{{name}}/scripts/hooks/pre_stop.sh", 8#700}.
+
+%%
+{file, "release_template/scripts/docker.sh","{{name}}/scripts/docker.sh"}.
+{file, "release_template/scripts/ssh.sh","{{name}}/scripts/ssh.sh"}.
+{template, "release_template/scripts/util.sh","{{name}}/scripts/util.sh"}.
+{chmod, "{{name}}/scripts/util.sh", 8#700}.
+%%
+{template, "release_template/tool.sh","{{name}}/tool.sh"}.
+{chmod, "{{name}}/tool.sh", 8#700}.
+{template, "release_template/README.md","{{name}}/README.md"}.
+{template, "release_template/.gitlab-ci.yml","{{name}}/.gitlab-ci.yml"}.
+
+%% config
+{template, "release_template/rebar.config","{{name}}/rebar.config"}.
+{template, "release_template/rebar.config.script","{{name}}/rebar.config.script"}.
+{template, "release_template/config/sys.config.src", "{{name}}/config/sys.config.src"}.
+{template, "release_template/config/vm.args.src", "{{name}}/config/vm.args.src"}.
+
+%% apps
+
+{template, "release_template/apps/release_template/src/release_template_app.erl", "{{name}}/apps/{{name}}/src/{{name}}_app.erl"}.
+{template, "release_template/apps/release_template/src/release_template_sup.erl", "{{name}}/apps/{{name}}/src/{{name}}_sup.erl"}.
+{template, "release_template/apps/release_template/src/release_template.app.src", "{{name}}/apps/{{name}}/src/{{name}}.app.src"}.
+{template, "release_template/apps/release_template/src/release_template.app.src.script", "{{name}}/apps/{{name}}/src/{{name}}.app.src.script"}.
+{template, "release_template/apps/release_template/src/release_template.erl", "{{name}}/apps/{{name}}/src/{{name}}.erl"}.
+
+

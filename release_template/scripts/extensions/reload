@@ -1,0 +1,10 @@
+#!/bin/bash
+
+case $1 in
+    help)
+        echo "bin/{{name}} reload        execute {{name}}_ctl:reload()"
+        ;;
+    *) ;;
+esac
+R=$(relx_nodetool eval '{{name}}_ctl:reload().')
+echo $R
