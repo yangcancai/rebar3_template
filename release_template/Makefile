@@ -27,7 +27,7 @@ distclean:
 .PHONY: test eunit ct testclean
 
 test: epmd dialyzer
-	./rebar3 do eunit, ct --config test/ct/ct.config --sys_config config/test.config, cover
+	./rebar3 do eunit -v, ct --config test/ct/ct.config --sys_config config/test.config -v, cover
 
 eunit: epmd
 	./rebar3 do eunit -v, cover

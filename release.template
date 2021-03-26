@@ -22,6 +22,7 @@
 {file, "release_template/test/eunit/template_test.tpl","{{name}}/test/eunit/template_test.tpl"}.
 {template, "release_template/test/ct/release_template_ct.hrl","{{name}}/test/ct/{{name}}_ct.hrl"}.
 {template, "release_template/test/ct/release_template_SUITE.erl","{{name}}/test/ct/{{name}}_SUITE.erl"}.
+{template, "release_template/test/eunit/release_template_test.erl","{{name}}/test/eunit/{{name}}_test.erl"}.
 
 {file, "release_template/LICENSE","{{name}}/LICENSE"}.
 {template, "release_template/.gitignore","{{name}}/.gitignore"}.
