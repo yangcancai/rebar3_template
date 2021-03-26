@@ -25,7 +25,7 @@ end_per_testcase(_Case, _Config) ->
     ok.
 
 new_meck() ->
-    ok = meck:new({{name}}, [passthrough]),
+    ok = meck:new({{name}}, [non_strict, no_link]),
     ok.
 
 expect() ->
