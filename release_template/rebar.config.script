@@ -9,8 +9,19 @@ NewConfig=lists:keyreplace(relx, 1, CONFIG, Relx),
 {_,Profiles} = lists:keyfind(profiles, 1, NewConfig),
 Prod= proplists:get_value(prod, Profiles),
 ProdRelx = proplists:get_value(relx, Prod),
-ProdRelx1 = lists:keyreplace(include_erts, 1, ProdRelx, {include_erts, "erts_10_7_2_1"}),
-ProdRelx2 = lists:keyreplace(system_libs, 1, ProdRelx1, {system_libs, "erts_10_7_2_1/lib"}),
+ErtsPath = case filelib:wildcard("erts_*") of
+ [] ->
+    case os:getenv("ERTS_PATH") of
+        false ->
+            code:root_dir();
+        P ->
+            P
+    end;
+ [ErtsP] ->
+    ErtsP
+end,
+ProdRelx1 = lists:keyreplace(include_erts, 1, ProdRelx, {include_erts, ErtsPath}),
+ProdRelx2 = lists:keyreplace(system_libs, 1, ProdRelx1, {system_libs, ErtsPath ++ "/lib"}),
 Prod1 = lists:keyreplace(relx, 1, Prod, {relx, ProdRelx2}),
 Profiles1 = lists:keyreplace(prod, 1, Profiles, {prod, Prod1}),
 NewConfig1 = lists:keyreplace(profiles, 1, NewConfig, {profiles, Profiles1}),
