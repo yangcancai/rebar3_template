@@ -9,6 +9,7 @@
 ## How to use
 
 * clone source to templates directory
+
 ```shell
 $ cd ~/.config/rebar3
 git clone  https://github.com/yangcancai/rebar3_template.git templates
@@ -102,6 +103,55 @@ $ rebar3 new app hello_rust
 $ cd hello_rust
 $ rebar3 new rust_nif my
 ...........................
+```
+
+* new gen_server
+
+```shell
+$ rebar3 new gen_server hello_proc path=test
+===> Writing test/hello_proc.erl
+```
+
+* new gen_statem
+
+```shell
+$ rebar3 new gen_statem hello_statem path=test
+===> Writing test/hello_statem.erl
+```
+
+* new mod
+
+```shell
+$ rebar3 new mod hello path=test
+===> Writing test/hello.erl
+```
+
+* new hrl
+
+```shell
+$ rebar3 new hrl hello path=test
+===> Writing test/hello.hrl
+```
+
+* new supervisor
+
+```shell
+$ rebar3 new sup hello path=test
+===> Writing test/hello_sup.erl
+```
+
+* new eunit
+
+```shell
+$ rebar3 new eunit hello path=test
+===> Writing test/hello_test.erl
+```
+
+* new suite
+
+```shell
+$ rebar3 new suite hello path=test
+===> Writing test/hello_SUITE.erl
 ```
 
 ## Reference
