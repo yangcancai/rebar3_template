@@ -19,16 +19,41 @@ git clone  https://github.com/yangcancai/rebar3_template.git templates
 
 ```shell
 $ cd ~/proj/erlang
-$ rebar3 new release hello_rust
+$ rebar3 new release hello_rust NAME='HELLO_RUST'
+===> Writing hello_rust/test/ct/ct.config
+===> Writing hello_rust/test/eunit/template_test.tpl
+===> Writing hello_rust/test/ct/hello_rust_ct.hrl
+===> Writing hello_rust/test/ct/hello_rust_SUITE.erl
+===> Writing hello_rust/test/eunit/hello_rust_test.erl
+===> Writing hello_rust/GIT_COMMIT_IDS
+===> Writing hello_rust/LICENSE
+===> Writing hello_rust/.gitignore
+===> Writing hello_rust/VERSION
+===> Writing hello_rust/rebar3
+===> Writing hello_rust/Makefile
+===> Writing hello_rust/Dockerfile
+===> Writing hello_rust/scripts/extensions/reload
+===> Writing hello_rust/scripts/hooks/post_install_upgrade.sh
+===> Writing hello_rust/scripts/hooks/post_start.sh
+===> Writing hello_rust/scripts/hooks/post_stop.sh
+===> Writing hello_rust/scripts/hooks/pre_install_upgrade.sh
+===> Writing hello_rust/scripts/hooks/pre_start.sh
+===> Writing hello_rust/scripts/hooks/pre_stop.sh
+===> Writing hello_rust/scripts/docker.sh
+===> Writing hello_rust/scripts/ssh.sh
+===> Writing hello_rust/scripts/util.sh
+===> Writing hello_rust/tool.sh
+===> Writing hello_rust/README.md
+===> Writing hello_rust/.gitlab-ci.yml
+===> Writing hello_rust/rebar.config
+===> Writing hello_rust/rebar.config.script
+===> Writing hello_rust/config/sys.config.src
+===> Writing hello_rust/config/vm.args.src
 ===> Writing hello_rust/apps/hello_rust/src/hello_rust_app.erl
 ===> Writing hello_rust/apps/hello_rust/src/hello_rust_sup.erl
 ===> Writing hello_rust/apps/hello_rust/src/hello_rust.app.src
-===> Writing hello_rust/rebar.config
-===> Writing hello_rust/config/sys.config
-===> Writing hello_rust/config/vm.args
-===> Writing hello_rust/.gitignore
-===> Writing hello_rust/LICENSE
-===> Writing hello_rust/README.md
+===> Writing hello_rust/apps/hello_rust/src/hello_rust.app.src.script
+===> Writing hello_rust/apps/hello_rust/src/hello_rust.erl
 $ cd hello_rust
 $ rebar3 new rust_nif my app_dir="apps/hello_rust"
 ===> Writing .cargo/config
