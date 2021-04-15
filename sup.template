@@ -1,0 +1,6 @@
+{description, "New supervisor file to path, command: \n         rebar3 new sup {{name}} path={{path}}"}.
+{variables, [
+    {name, "hello", "Name of the file, will be create new file to {{path}}"},
+    {path, "path", "Path of the app path directory"}
+]}.
+{template, "sup.erl", "{{path}}/{{name}}_sup.erl"}.

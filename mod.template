@@ -1,0 +1,6 @@
+{description, "New module file to path, command: \n         rebar3 new mod {{name}} path={{path}}"}.
+{variables, [
+    {name, "hello", "Name of the file, will be create new file to {{path}}"},
+    {path, "path", "Path of the app module directory"}
+]}.
+{template, "mod.erl", "{{path}}/{{name}}.erl"}.

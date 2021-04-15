@@ -1,0 +1,6 @@
+{description, "New hrl file to path, command: \n         rebar3 new hrl {{name}} path={{path}}"}.
+{variables, [
+    {name, "hello", "Name of the file, will be create new file to {{path}}"},
+    {path, "include", "Path of the app include directory"}
+]}.
+{template, "hrl.erl", "{{path}}/{{name}}.hrl"}.

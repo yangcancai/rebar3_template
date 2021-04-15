@@ -2,7 +2,6 @@
 
 -include("{{name}}_ct.hrl").
 
--include_lib("eunit/include/eunit.hrl").
 -compile(export_all).
 
 all() ->

@@ -1,7 +1,7 @@
 {description, "A basic Common release project for an OTP application, command: "}.
 {variables, [
     {name, "my_release", "Name of the project"},
-    {'NAME', "Upper of Name"},
+    {'NAME', "{{name}}","Upper of name"},
     {app_dir, ".", "Path of app"}
 ]}.
 {dir, "{{name}}"}.

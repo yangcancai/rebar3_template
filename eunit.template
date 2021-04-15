@@ -1,0 +1,6 @@
+{description, "New eunit file to path, command: \n         rebar3 new eunit {{name}} path={{path}}"}.
+{variables, [
+    {name, "hello", "Name of the gen_server file, will be create new file to {{path}}"},
+    {path, "eunit", "Path of the app eunit directory"}
+]}.
+{template, "eunit.erl", "{{path}}/{{name}}_test.erl"}.

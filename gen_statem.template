@@ -1,0 +1,6 @@
+{description, "New gen_statem file to path, command: \n         rebar3 new gen_statem {{name}} path={{path}}"}.
+{variables, [
+    {name, "hello", "Name of the gen_server file, will be create new file to {{path}}"},
+    {path, "src", "Path of the app src directory"}
+]}.
+{template, "gen_statem.erl", "{{path}}/{{name}}.erl"}.
