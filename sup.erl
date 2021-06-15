@@ -8,6 +8,7 @@
 %%%-------------------------------------------------------------------
 
 -module({{name}}_sup).
+
 -author("{{author_name}}").
 
 -behaviour(supervisor).

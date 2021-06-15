@@ -6,10 +6,9 @@
 %%% @end
 %%% Created : {{datetime}}
 %%%-------------------------------------------------------------------
+-module({{name}}_SUITE).
 
 -author("{{author_name}}").
-
--module({{name}}_SUITE).
 
 %% -include("app_ct.hrl").
 
