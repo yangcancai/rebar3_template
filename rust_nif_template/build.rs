@@ -1,3 +1,12 @@
+//-------------------------------------------------------------------
+// @author {{author_name}}
+{{rust_apache_license}}
+// @doc
+//
+// @end
+// Created : {{datetime}}
+//-------------------------------------------------------------------
+
 use std::{env, fs::File, io::Write, path::Path};
 
 fn main() {

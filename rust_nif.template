@@ -6,7 +6,11 @@
 {dir, "crates/{{name}}"}.
 {dir, ".cargo"}.
 {dir, "crates/{{name}}/src"}.
+{dir, "crates/{{name}}/tests"}.
+{dir, "crates/{{name}}/benches"}.
 {file, "rust_nif_template/.cargo/config", ".cargo/config"}.
+{template, "rust_nif_template/tests/rust_nif_test.rs", "crates/{{name}}/tests/{{name}}_test.rs"}.
+{template, "rust_nif_template/benches/bench.rs", "crates/{{name}}/benches/bench.rs"}.
 {template, "rust_nif_template/Cargo.toml", "crates/{{name}}/Cargo.toml"}.
 {template, "rust_nif_template/Cargo.lock", "crates/{{name}}/Cargo.lock"}.
 {template, "rust_nif_template/src/atoms.rs", "crates/{{name}}/src/atoms.rs"}.

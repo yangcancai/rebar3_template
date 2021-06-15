@@ -1,6 +1,15 @@
+//-------------------------------------------------------------------
+// @author {{author_name}}
+{{rust_apache_license}}
+// @doc
+//
+// @end
+// Created : {{datetime}}
+//-------------------------------------------------------------------
+
 use std::{borrow::Cow, sync::{RwLock, RwLockReadGuard, RwLockWriteGuard}};
 
-use rustler::{lazy_static::lazy::Lazy, resource::ResourceArc};
+use rustler::{resource::ResourceArc};
 use rustler::{Binary, Encoder, Env, NifResult, OwnedBinary, Term};
 
 use atoms::{ok};

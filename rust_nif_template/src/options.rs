@@ -1,3 +1,12 @@
+//-------------------------------------------------------------------
+// @author {{author_name}}
+{{rust_apache_license}}
+// @doc
+//
+// @end
+// Created : {{datetime}}
+//-------------------------------------------------------------------
+
 use rustler::{Decoder, NifResult, Term};
 use serde::{Deserialize, Serialize};
 

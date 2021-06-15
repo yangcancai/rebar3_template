@@ -7,8 +7,13 @@ build = "build.rs"
 
 [lib]
 name = "{{name}}"
-crate-type = ["cdylib"]
+crate-type = ["cdylib","rlib"]
+
+[[bench]]
+name = "bench"
+harness = false
 
 [dependencies]
 rustler = "0.22.0-rc.0"
 serde = { version = "1.0", features = ["derive"] }
+bencher = "0.1.5"

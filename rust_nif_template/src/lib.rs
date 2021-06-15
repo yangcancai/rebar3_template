@@ -1,3 +1,12 @@
+//-------------------------------------------------------------------
+// @author {{author_name}}
+{{rust_apache_license}}
+// @doc
+//
+// @end
+// Created : {{datetime}}
+//-------------------------------------------------------------------
+
 extern crate core;
 extern crate rustler;
 extern crate serde;
