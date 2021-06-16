@@ -8,4 +8,6 @@
 %%%-------------------------------------------------------------------
 -module({{name}}_test).
 
+-author("{{author_name}}").
+
 -include_lib("eunit/include/eunit.hrl").
