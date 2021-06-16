@@ -1,0 +1,35 @@
+{description, "New app command: \n         rebar3 new app {{name}} NAME={{NAME}}"}.
+{variables, [
+    {name, "hello", "Name of App, will create new App"},
+    {'NAME', "HELLO", "Upper Of Name"}
+]}.
+{dir, "{{name}}"}.
+{dir, "{{name}}/src"}.
+{dir, "{{name}}/include"}.
+{dir, "{{name}}/priv"}.
+{dir, "{{name}}/doc"}.
+{dir,"{{name}}/test"}.
+{dir,"{{name}}/test/eunit"}.
+{dir,"{{name}}/test/ct"}.
+
+%% src
+{template, "app_template/src/app_template_app.erl","{{name}}/src/{{name}}_app.erl"}.
+{template, "app_template/src/app_template_sup.erl","{{name}}/src/{{name}}_sup.erl"}.
+{template, "app_template/src/app_template.app.src","{{name}}/src/{{name}}.app.src"}.
+{template, "app_template/src/app_template.erl","{{name}}/src/{{name}}.erl"}.
+{template, "app_template/src/app_template.app.src.script","{{name}}/src/{{name}}.app.src.script"}.
+
+%% config
+{template, "app_template/rebar.config", "{{name}}/rebar.config"}.
+{template, "app_template/Makefile", "{{name}}/Makefile"}.
+{template, "app_template/VERSION", "{{name}}/VERSION"}.
+{file, "app_template/rebar3", "{{name}}/rebar3"}.
+{chmod, "{{name}}/rebar3", 8#755}.
+%% LICENSE
+{file, "app_template/LICENSE", "{{name}}/LICENSE"}.
+%% test
+{template, "app_template/test/ct/app_template_SUITE.erl", "{{name}}/test/ct/{{name}}_SUITE.erl"}.
+{template, "app_template/test/ct/app_template_ct.hrl", "{{name}}/test/ct/{{name}}_ct.hrl"}.
+{file, "app_template/test/ct/ct.config", "{{name}}/test/ct/ct.config"}.
+{template, "app_template/test/eunit/app_template_test.erl", "{{name}}/test/eunit/{{name}}_test.erl"}.
+{file, "app_template/test/eunit/template_test.tpl", "{{name}}/test/eunit/template_test.tpl"}.
