@@ -1,8 +1,7 @@
-{description, "A basic Common release project for an OTP application, command: "}.
+{description, "A basic Common release project for an OTP application, command: \n         rebar3 new release {{name}} NAME={{NAME}}"}.
 {variables, [
     {name, "my_release", "Name of the project"},
-    {'NAME', "{{name}}","Upper of name"},
-    {app_dir, ".", "Path of app"}
+    {'NAME', "{{name}}","Upper of name"}
 ]}.
 {dir, "{{name}}"}.
 {dir, "{{name}}/apps/{{name}}/src"}.
