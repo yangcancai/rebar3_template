@@ -11,6 +11,7 @@
 {dir,"{{name}}/test"}.
 {dir,"{{name}}/test/eunit"}.
 {dir,"{{name}}/test/ct"}.
+{dir,"{{name}}/config"}.
 
 %% src
 {template, "app_template/src/app_template_app.erl","{{name}}/src/{{name}}_app.erl"}.
@@ -25,6 +26,11 @@
 {template, "app_template/VERSION", "{{name}}/VERSION"}.
 {file, "app_template/rebar3", "{{name}}/rebar3"}.
 {chmod, "{{name}}/rebar3", 8#755}.
+{file, "app_template/config/sys.config", "{{name}}/config/sys.config"}.
+{file, "app_template/config/test.config", "{{name}}/config/test.config"}.
+{file, "app_template/tool.sh", "{{name}}/tool.sh"}.
+{file, "app_template/.gitignore", "{{name}}/.gitignore"}.
+{chmod, "{{name}}/tool.sh", 8#755}.
 %% LICENSE
 {file, "app_template/LICENSE", "{{name}}/LICENSE"}.
 %% test
