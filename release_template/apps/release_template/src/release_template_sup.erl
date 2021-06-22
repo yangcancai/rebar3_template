@@ -9,6 +9,8 @@
 
 -module({{name}}_sup).
 
+-author("{{author_name}}").
+
 -behaviour(supervisor).
 
 -export([start_link/0]).

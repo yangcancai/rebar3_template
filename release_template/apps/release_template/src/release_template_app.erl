@@ -9,6 +9,8 @@
 
 -module({{name}}_app).
 
+-author("{{author_name}}").
+
 -behaviour(application).
 
 -export([start/2, stop/1]).
