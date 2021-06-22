@@ -31,6 +31,7 @@
 {file, "app_template/tool.sh", "{{name}}/tool.sh"}.
 {file, "app_template/.gitignore", "{{name}}/.gitignore"}.
 {chmod, "{{name}}/tool.sh", 8#755}.
+{template, "app_template/README.md", "{{name}}/README.md"}.
 %% LICENSE
 {file, "app_template/LICENSE", "{{name}}/LICENSE"}.
 %% test
