@@ -1,0 +1,34 @@
+{description, "A basic Common rabbitmq_exchange_type plugin project for an OTP application, command: \n         rebar3 new rabbit_exchange_type {{name}} type={{type}}"}.
+{variables, [
+    {name, "hello", "Name of the project"},
+    {'type', "{{type}}","The exchange type suffix - (x-{{type}})"}
+]}.
+{dir, "{{name}}"}.
+{dir, "{{name}}/src"}.
+{dir,"{{name}}/test"}.
+{dir,"{{name}}/test/eunit"}.
+{dir,"{{name}}/test/ct"}.
+{dir,"{{name}}/plugins"}.
+
+%% test
+
+{file, "release_template/test/ct/ct.config","{{name}}/test/ct/ct.config"}.
+{file, "release_template/test/eunit/template_test.tpl","{{name}}/test/eunit/template_test.tpl"}.
+{template, "release_template/test/ct/release_template_ct.hrl","{{name}}/test/ct/{{name}}_ct.hrl"}.
+{template, "release_template/test/ct/release_template_SUITE.erl","{{name}}/test/ct/{{name}}_SUITE.erl"}.
+{template, "release_template/test/eunit/release_template_test.erl","{{name}}/test/eunit/{{name}}_test.erl"}.
+%% some file
+{file, "release_template/LICENSE","{{name}}/LICENSE"}.
+{template, "rabbit/rabbit_exchange_type_template/.gitignore","{{name}}/.gitignore"}.
+{template, "rabbit/rabbit_exchange_type_template/.gitattributes","{{name}}/.gitattributes"}.
+{template, "rabbit/rabbit_exchange_type_template/.dockerignore","{{name}}/.dockerignore"}.
+{template, "rabbit/rabbit_exchange_type_template/Makefile","{{name}}/Makefile"}.
+{template, "rabbit/rabbit_exchange_type_template/tool.sh","{{name}}/tool.sh"}.
+{template, "rabbit/rabbit_exchange_type_template/util.sh","{{name}}/util.sh"}.
+{template, "rabbit/rabbit_exchange_type_template/src/rabbit_exchange_type_template.erl","{{name}}/src/rabbit_exchange_type_{{type}}.erl"}.
+{chmod, "{{name}}/tool.sh", 8#700}.
+{chmod, "{{name}}/util.sh", 8#700}.
+{template, "rabbit/rabbit_exchange_type_template/README.md","{{name}}/README.md"}.
+{template, "rabbit/rabbit_exchange_type_template/Dockerfile","{{name}}/Dockerfile"}.
+{template, "rabbit/rabbit_exchange_type_template/erlang.mk","{{name}}/erlang.mk"}.
+{template, "rabbit/rabbit_exchange_type_template/rabbitmq-components.mk","{{name}}/rabbitmq-components.mk"}.

@@ -1,0 +1,6 @@
+*
+!.git
+!src/rabbit_exchange_type_golden.erl
+!erlang.mk
+!rabbitmq-components.mk
+!Makefile
