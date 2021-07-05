@@ -1,5 +1,53 @@
 # rebar3_template
 
+## Features
+
+* new app
+* new release
+* new rust_nif(Develop rsut nif for erlang)
+* new rabbit_exchange_type (Develop rabbitmq exchange plugin)
+* new sup
+* new suite
+* new mod
+* new hrl
+* new gen_server
+* new gen_statem
+* new eunit
+* rebar3 new to show help
+
+```shell
+  $rebar3 new
+  app (custom): New app command: 
+         rebar3 new app {{name}} NAME={{NAME}}
+cmake (built-in): Standalone Makefile for building C/C++ in c_src
+escript (built-in): Complete escriptized application structure
+eunit (custom): New eunit file to path, command: 
+         rebar3 new eunit {{name}} path={{path}}
+gen_server (custom): New gen_server file to path, command: 
+         rebar3 new gen_server {{name}} path={{path}}
+gen_statem (custom): New gen_statem file to path, command: 
+         rebar3 new gen_statem {{name}} path={{path}}
+hrl (custom): New hrl file to path, command: 
+         rebar3 new hrl {{name}} path={{path}}
+lib (built-in): Complete OTP Library application (no processes) structure
+mod (custom): New module file to path, command: 
+         rebar3 new mod {{name}} path={{path}}
+plugin (built-in): Rebar3 plugin project structure
+rabbit_exchange_type (custom): A basic Common rabbitmq_exchange_type plugin project for an OTP application, command: 
+         rebar3 new rabbit_exchange_type {{name}} type={{type}}
+release (custom): A basic Common release project for an OTP application, command: 
+         rebar3 new release {{name}} NAME={{NAME}}
+rust (custom): New module file to path, command: 
+         rebar3 new rust {{name}} path={{path}}
+rust_nif (custom): A basic Common Rust nif project for an OTP application, command: 
+          Releases proj: rebar3 new rust_nif {{name}} app_dir="apps/{{app}}", 
+          App proj: rebar3 new rust_nif {{name}}
+suite (custom): New suite file to path, command: 
+         rebar3 new suite {{name}} path={{path}}
+sup (custom): New supervisor file to path, command: 
+         rebar3 new sup {{name}} path={{path}}
+umbrella (built-in): OTP structure for executable programs (alias of 'release' template)
+```
 ## Required
 
 * rust environment [install rust](https://www.rust-lang.org/tools/install)
@@ -177,6 +225,86 @@ $ rebar3 new eunit hello path=test
 ```shell
 $ rebar3 new suite hello path=test
 ===> Writing test/hello_SUITE.erl
+```
+
+* new rabbit_exchange_type
+  
+```shell
+$ rebar3 new rabbit_exchange_type rabbitmq_hello_exchange type=hello
+===> Writing rabbitmq_hello_exchange/test/ct/ct.config
+===> Writing rabbitmq_hello_exchange/test/eunit/template_test.tpl
+===> Writing rabbitmq_hello_exchange/test/ct/rabbitmq_hello_exchange_ct.hrl
+===> Writing rabbitmq_hello_exchange/test/ct/rabbitmq_hello_exchange_SUITE.erl
+===> Writing rabbitmq_hello_exchange/test/eunit/rabbitmq_hello_exchange_test.erl
+===> Writing rabbitmq_hello_exchange/LICENSE
+===> Writing rabbitmq_hello_exchange/.gitignore
+===> Writing rabbitmq_hello_exchange/.gitattributes
+===> Writing rabbitmq_hello_exchange/.dockerignore
+===> Writing rabbitmq_hello_exchange/Makefile
+===> Writing rabbitmq_hello_exchange/tool.sh
+===> Writing rabbitmq_hello_exchange/util.sh
+===> Writing rabbitmq_hello_exchange/src/rabbit_exchange_type_hello.erl
+===> Writing rabbitmq_hello_exchange/README.md
+===> Writing rabbitmq_hello_exchange/Dockerfile
+===> Writing rabbitmq_hello_exchange/erlang.mk
+===> Writing rabbitmq_hello_exchange/rabbitmq-components.mk
+$ cd rabbitmq_hello_exchange
+$ sh tool.sh build_docker
+Sending build context to Docker daemon   65.7kB
+Step 1/10 : FROM elixir:1.11.4
+ ---> bd3279080dc1
+Step 2/10 : ENV LANG=C.UTF-8
+ ---> Using cache
+ ---> 200eb0783750
+Step 3/10 : RUN apt-get -y update
+ ---> Using cache
+ ---> a2c2616d3c4b
+Step 4/10 : RUN apt-get -y install         curl         git         make         python         rsync         zip
+ ---> Using cache
+ ---> 6b4bd920ba74
+Step 5/10 : WORKDIR /rabbitmq_hello_exchange
+ ---> Running in 68938f609fd1
+Removing intermediate container 68938f609fd1
+ ---> dc64cb66a64d
+............................................
+............................................
+$ sh tool.sh make
+make[1]: Entering directory '/rabbitmq_hello_exchange/rabbitmq-server/deps/rabbit_common'
+make[1]: Leaving directory '/rabbitmq_hello_exchange/rabbitmq-server/deps/rabbit_common'
+make[1]: Entering directory '/rabbitmq_hello_exchange/rabbitmq-server/deps/rabbit'
+make[2]: Entering directory '/rabbitmq_hello_exchange/rabbitmq-server/deps/rabbit/apps/rabbitmq_prelaunch'
+make[2]: Leaving directory '/rabbitmq_hello_exchange/rabbitmq-server/deps/rabbit/apps/rabbitmq_prelaunch'
+make[2]: Entering directory '/rabbitmq_hello_exchange/rabbitmq-server/deps/rabbitmq_cli'
+make[2]: Leaving directory '/rabbitmq_hello_exchange/rabbitmq-server/deps/rabbitmq_cli'
+make[1]: Leaving directory '/rabbitmq_hello_exchange/rabbitmq-server/deps/rabbit'
+ DEPEND rabbitmq_hello_exchange.d
+ ERLC   rabbit_exchange_type_hello.erl
+ APP    rabbitmq_hello_exchange
+make[1]: Entering directory '/rabbitmq_hello_exchange/rabbitmq-server/deps/rabbit_common'
+............................................
+............................................
+
+              RabbitMQ 3.8.15
+        
+              Copyright (c) 2007-2021 VMware, Inc. or its affiliates.
+            
+              Licensed under the MPL 2.0. Website: https://rabbitmq.com
+
+  Doc guides: https://rabbitmq.com/documentation.html
+  Support:    https://rabbitmq.com/contact.html
+  Tutorials:  https://rabbitmq.com/getstarted.html
+  Monitoring: https://rabbitmq.com/monitoring.html
+
+  Logs: /tmp/rabbitmq-test-instances/rabbit@2808d93eceb1/log/rabbit@2808d93eceb1.log
+        /tmp/rabbitmq-test-instances/rabbit@2808d93eceb1/log/rabbit@2808d93eceb1_upgrade.log
+
+  Config file(s): /tmp/rabbitmq-test-instances/test.config
+
+  Starting broker... completed with 4 plugins.
+1>
+
+$ ls -al plugins | grep hello
+-rw-r--r--   1 admin  staff     7502  7  5 12:17 rabbitmq_hello_exchange-3.8.15.ez
 ```
 
 ## Reference
