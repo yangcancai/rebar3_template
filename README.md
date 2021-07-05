@@ -50,9 +50,10 @@ umbrella (built-in): OTP structure for executable programs (alias of 'release' t
 ```
 ## Required
 
-* rust environment [install rust](https://www.rust-lang.org/tools/install)
+* rust environment(for new rust_nif) [install rust](https://www.rust-lang.org/tools/install)
 * erlang environment
 * rebar3 
+* Docker (for new rabbit_exchange_type)[install docker](https://www.docker.com/products/docker-desktop)
 
 ## How to use
 
