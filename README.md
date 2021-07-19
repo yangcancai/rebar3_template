@@ -4,7 +4,7 @@
 
 * new app
 * new release
-* new rust_nif(Develop rsut nif for erlang)
+* new rust_nif(Develop rust nif for erlang)
 * new rabbit_exchange_type (Develop rabbitmq exchange plugin)
 * new sup
 * new suite
