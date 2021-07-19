@@ -1,6 +1,8 @@
 {{name}}
 ----
 
+![CI](https://github.com/{{author_name}}/{{name}}/actions/workflows/ci.yml/badge.svg)
+
 Required
 -----
 	$ rebar3 -v

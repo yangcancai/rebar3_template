@@ -14,6 +14,8 @@
 {dir,"{{name}}/test"}.
 {dir,"{{name}}/test/eunit"}.
 {dir,"{{name}}/test/ct"}.
+{dir, "{{name}}/.github"}.
+{dir, "{{name}}/.github/workflows"}.
 
 %% test
 
@@ -61,6 +63,7 @@
 {chmod, "{{name}}/tool.sh", 8#700}.
 {template, "release_template/README.md","{{name}}/README.md"}.
 {template, "release_template/.gitlab-ci.yml","{{name}}/.gitlab-ci.yml"}.
+{template, ".github/workflows/ci.yml", "{{name}}/.github/workflows/ci.yml"}.
 
 %% config
 {template, "release_template/rebar.config","{{name}}/rebar.config"}.

@@ -12,6 +12,8 @@
 {dir,"{{name}}/test/eunit"}.
 {dir,"{{name}}/test/ct"}.
 {dir,"{{name}}/config"}.
+{dir, "{{name}}/.github"}.
+{dir, "{{name}}/.github/workflows"}.
 
 %% src
 {template, "app_template/src/app_template_app.erl","{{name}}/src/{{name}}_app.erl"}.
@@ -32,6 +34,8 @@
 {file, "app_template/.gitignore", "{{name}}/.gitignore"}.
 {chmod, "{{name}}/tool.sh", 8#755}.
 {template, "app_template/README.md", "{{name}}/README.md"}.
+{template, ".github/workflows/ci.yml", "{{name}}/.github/workflows/ci.yml"}.
+
 %% LICENSE
 {file, "app_template/LICENSE", "{{name}}/LICENSE"}.
 %% test
