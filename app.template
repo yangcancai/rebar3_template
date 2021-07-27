@@ -29,7 +29,7 @@
 {file, "app_template/rebar3", "{{name}}/rebar3"}.
 {chmod, "{{name}}/rebar3", 8#755}.
 {file, "app_template/config/sys.config", "{{name}}/config/sys.config"}.
-{file, "app_template/config/test.config", "{{name}}/config/test.config"}.
+{template, "app_template/config/test.config", "{{name}}/config/test.config"}.
 {file, "app_template/tool.sh", "{{name}}/tool.sh"}.
 {file, "app_template/.gitignore", "{{name}}/.gitignore"}.
 {chmod, "{{name}}/tool.sh", 8#755}.
