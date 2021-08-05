@@ -38,7 +38,7 @@
     {excluded_modules, []}
   ]},
 
-  {traceinstall, [
+  {${{{name}}}, [
    {port, ${{{NAME}}_PORT}},
    {redis_ip, "${{{NAME}}_REDIS_IP}"},
    {redis_port, ${{{NAME}}_REDIS_PORT}},
