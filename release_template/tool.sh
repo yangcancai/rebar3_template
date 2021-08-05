@@ -122,6 +122,25 @@ tar) release $2
 ssh_restart) ssh_restart;;
 git_proxy) git_proxy;;
 relup) relup $2 $3;;
+rebar3)
+    CMD="rebar3"
+	i=0
+	for par in $@; do
+	if [ $i -ne 0 ];then
+		CMD="$CMD $par"
+	fi
+	let i=i+1
+	done
+    CMD=$CMD" author_name='' apache_license=''"
+	print "$CMD"
+	eval $CMD
+	if [ $? -ne 0 ]; then
+		echo "eval {$CMD} ERROR !!!!!"
+		exit 1
+	else
+		echo "eval {$CMD} SUCCESS "
+	fi
+;;
 *)
 echo "Usage: sh tool.sh [command]"
 echo "command:"
