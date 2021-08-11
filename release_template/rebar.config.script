@@ -25,5 +25,5 @@ ProdRelx2 = lists:keyreplace(system_libs, 1, ProdRelx1, {system_libs, ErtsPath +
 Prod1 = lists:keyreplace(relx, 1, Prod, {relx, ProdRelx2}),
 Profiles1 = lists:keyreplace(prod, 1, Profiles, {prod, Prod1}),
 NewConfig1 = lists:keyreplace(profiles, 1, NewConfig, {profiles, Profiles1}),
-file:write_file("rebar.config.gen", io_lib:format("%%% auto generate ~n~p", [NewConfig1])),
+file:write_file("rebar.config.gen.{{name}}", io_lib:format("%%% auto generate ~n~p", [NewConfig1])),
 NewConfig1.

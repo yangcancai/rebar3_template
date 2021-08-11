@@ -5,5 +5,5 @@ Relx0 = lists:keyfind(relx, 1, CONFIG),
 Version = string:strip(string:strip(binary_to_list(VersionBin),both,$\n)),
 Relx = {relx, [{release, {{{name}}, Version}, RelxApps0}] ++ RelxT0},
 NewConfig=lists:keyreplace(relx, 1, CONFIG, Relx),
-file:write_file("rebar.config.gen", io_lib:format("%%% auto generate ~n~p", [NewConfig])),
+file:write_file("rebar.config.gen.{{name}}", io_lib:format("%%% auto generate ~n~p", [NewConfig])),
 NewConfig.
