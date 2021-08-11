@@ -1,0 +1,16 @@
+{description, "A basic Common redis module project ,command: \n         rebar3 new redis_module {{name}} NAME={{NAME}} Name={{Name}}"}.
+{variables, [
+    {name, "hello", "Name of the redis command"},
+    {'NAME', "HELLO","Upper of name"},
+    {'Name', "Hello","Upper the first letter of name"}
+]}.
+{dir, "{{name}}"}.
+{dir, "{{name}}/modules"}.
+
+{template, "redis_module_template/modules/.gitignore","{{name}}/modules/.gitignore"}.
+{template, "redis_module_template/modules/bucket.c","{{name}}/modules/{{name}}.c"}.
+{template, "redis_module_template/modules/Makefile","{{name}}/modules/Makefile"}.
+{template, "redis_module_template/Makefile","{{name}}/Makefile"}.
+{template, "redis_module_template/README.md","{{name}}/README.md"}.
+{template, "redis_module_template/redismodule.h","{{name}}/redismodule.h"}.
+
