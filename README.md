@@ -13,6 +13,7 @@
 * new gen_server
 * new gen_statem
 * new eunit
+* new redis_module (A redis module template )
 * rebar3 new to show help
 
 ```shell
@@ -35,6 +36,8 @@ mod (custom): New module file to path, command:
 plugin (built-in): Rebar3 plugin project structure
 rabbit_exchange_type (custom): A basic Common rabbitmq_exchange_type plugin project for an OTP application, command: 
          rebar3 new rabbit_exchange_type {{name}} type={{type}}
+redis_module (custom): A basic Common redis module project ,command: 
+         rebar3 new redis_module {{name}} NAME={{NAME}} Name={{Name}}
 release (custom): A basic Common release project for an OTP application, command: 
          rebar3 new release {{name}} NAME={{NAME}}
 rust (custom): New module file to path, command: 
@@ -306,6 +309,57 @@ make[1]: Entering directory '/rabbitmq_hello_exchange/rabbitmq-server/deps/rabbi
 
 $ ls -al plugins | grep hello
 -rw-r--r--   1 admin  staff     7502  7  5 12:17 rabbitmq_hello_exchange-3.8.15.ez
+```
+
+* new redis module
+
+```shell
+$ rebar3 new redis_module hello NAME=HELLO Name=Hello
+===> Writing hello/modules/.gitignore
+===> Writing hello/modules/hello.c
+===> Writing hello/modules/Makefile
+===> Writing hello/Makefile
+===> Writing hello/README.md
+===> Writing hello/redismodule.h
+$ cd hello
+$ make && redis-server --loadmodule modules/hello.so
+cd modules && /Library/Developer/CommandLineTools/usr/bin/make all
+make[1]: Nothing to be done for `all'.
+3113:C 11 Aug 2021 10:45:29.190 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+3113:C 11 Aug 2021 10:45:29.190 # Redis version=6.0.9, bits=64, commit=00000000, modified=0, pid=3113, just started
+3113:C 11 Aug 2021 10:45:29.190 # Configuration loaded
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 6.0.9 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 3113
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+3113:M 11 Aug 2021 10:45:29.193 # Server initialized
+3113:M 11 Aug 2021 10:45:29.941 * Module 'hello' loaded from modules/hello.so
+3113:M 11 Aug 2021 10:45:29.941 * Ready to accept connections
+
+$ redis-cli
+127.0.0.1:6379> hello.insert player id01 60 100 name foo money 100
+(integer) 1
+127.0.0.1:6379> hello.get player
+1) 1) "name"
+   2) "foo"
+   3) "money"
+   4) "100"
+   5) "id"
+   6) "id01"
 ```
 
 ## Reference
