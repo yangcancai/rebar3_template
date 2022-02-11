@@ -1,6 +1,6 @@
 {application, {{name}},
  [{description, "An OTP application"},
-  {vsn, "cat from VERSION"},
+  {vsn, "0.1.0"},
   {registered, []},
   {mod, {{{name}}_app, []}},
   {applications,

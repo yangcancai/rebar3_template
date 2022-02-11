@@ -20,12 +20,10 @@
 {template, "app_template/src/app_template_sup.erl","{{name}}/src/{{name}}_sup.erl"}.
 {template, "app_template/src/app_template.app.src","{{name}}/src/{{name}}.app.src"}.
 {template, "app_template/src/app_template.erl","{{name}}/src/{{name}}.erl"}.
-{template, "app_template/src/app_template.app.src.script","{{name}}/src/{{name}}.app.src.script"}.
 
 %% config
 {template, "app_template/rebar.config", "{{name}}/rebar.config"}.
 {template, "app_template/Makefile", "{{name}}/Makefile"}.
-{template, "app_template/VERSION", "{{name}}/VERSION"}.
 {file, "app_template/rebar3", "{{name}}/rebar3"}.
 {chmod, "{{name}}/rebar3", 8#755}.
 {file, "app_template/config/sys.config", "{{name}}/config/sys.config"}.
