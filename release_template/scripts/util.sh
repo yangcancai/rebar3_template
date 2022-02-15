@@ -126,22 +126,22 @@ start(){
 
 }
 restart(){
-        echo_eval cd $APP
+	 # echo_eval cd $APP
         echo_eval $APP_PID
         echo_eval $APP_VER
         if [ $? -eq 0 ]; then
                 echo_eval $APP_STOP
         fi
         echo_eval $APP_BAK
-        echo_eval cd ..
+        # echo_eval cd ..
         do_tar
         if [ $? -eq 0 ]; then
-                echo_eval cd $APP
+                # echo_eval cd $APP
                 start
         else
                 # recover
                 warning_log "will start the old version"
-                echo_eval cd $APP
+                # echo_eval cd $APP
                 echo_eval $APP_BAK_RECOVER
                 start
         fi

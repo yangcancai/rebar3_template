@@ -3,23 +3,43 @@
 IMAGE="{{name}}"
 DOCKER_PORT="-p 8081:8081"
 DOCKER_PROXY=""
+if [ ${HTTP_PROXY} ]; then
+DOCKER_PROXY=${HTTP_PROXY}
+fi
 GIT_HOST="github.com"
 GIT_IP="140.82.114.4"
 APP_VERSION="$(cat VERSION)"
 SCP_SRC_FILE="_build/prod/rel/{{name}}/{{name}}-${APP_VERSION}.tar.gz"
 PROJ_DIR="/app"
-SCP_DST_DIR=/data/{{name}}
-APP={{name}}
-APP_START="bin/$APP daemon"
-APP_PID="bin/$APP pid"
-APP_VER="bin/$APP versions"
-APP_TAR="tar -xf ${APP}-$APP_VERSION.tar.gz -C {{name}}"
-APP_TAR_BAK="mv ${APP}-$APP_VERSION.tar.gz ${APP}-$APP_VERSION.tar.gz.bak"
-APP_STOP="bin/$APP stop"
-APP_BAK="rm -rf releases_bak && mv releases releases_bak"
-APP_BAK_RECOVER="mv releases_bak releases"
 . ./scripts/docker.sh
 . ./scripts/ssh.sh
+if [ ${RESTART} ] && [ ${RESTART} -eq 1 ]; then
+SCP_DST_DIR=/data/{{name}}
+APP={{name}}
+APP_CMD="${SCP_DST_DIR}/${APP}/bin/$APP"
+APP_START="${APP_CMD} daemon"
+APP_PID="${APP_CMD} pid"
+APP_VER="${APP_CMD} versions"
+APP_BAK_NAME=$(date +${APP}-${APP_VERSION}_%Y%m%d.tar.gz)
+APP_TAR="cd $SCP_DST_DIR && tar -xf ${APP}-$APP_VERSION.tar.gz -C $APP"
+APP_TAR_BAK="mv ${APP}-$APP_VERSION.tar.gz $APP_BAK_NAME"
+echo $APP_TAR_BAK;
+APP_STOP="${APP_CMD} stop"
+APP_BAK="cd $SCP_DST_DIR/$APP && rm -rf releases_bak && mv releases releases_bak"
+APP_BAK_RECOVER="mv releases_bak releases"
+print "{{name}} will be restart!"
+else
+SCP_DST_DIR=/tmp/
+APP={{name}}
+print "{{name}} will not be restart!"
+APP_START="echo ignore"
+APP_PID="echo ignore"
+APP_VER="echo ignore"
+APP_TAR="cd /tmp/ && mkdir -p $APP && tar -xf ${APP}-$APP_VERSION.tar.gz -C $APP"
+APP_TAR_BAK="echo ignore"
+APP_STOP="echo ignore"
+APP_BAK="echo ignore"
+APP_BAK_RECOVER="echo ignore"
 cp_static(){
      echo_eval cp -r assets/dist/* apps/{{name}}/priv/static/
      echo_eval cp -r assets/lib/dist/* apps/{{name}}/priv/static/
