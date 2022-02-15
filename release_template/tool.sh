@@ -40,6 +40,7 @@ APP_TAR_BAK="echo ignore"
 APP_STOP="echo ignore"
 APP_BAK="echo ignore"
 APP_BAK_RECOVER="echo ignore"
+fi
 cp_static(){
      echo_eval cp -r assets/dist/* apps/{{name}}/priv/static/
      echo_eval cp -r assets/lib/dist/* apps/{{name}}/priv/static/
