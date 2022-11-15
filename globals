@@ -1,9 +1,9 @@
 {variables, [
-   {author_name, "Cam"},
+   {author_name, "<YourNAME>"},
    {copyright_year, "2021", "The year or range of years for copyright"},
-   {author_email, "yangcancai0112@gmail.com"},
+   {author_email, "<YourEmail>"},
    {apache_license, "
-%%% Copyright (c) 2021 by yangcancai(yangcancai0112@gmail.com), All Rights Reserved.
+%%% Copyright (c) 2021 by <YourEmail>, All Rights Reserved.
 %%%
 %%% Licensed under the Apache License, Version 2.0 (the \"License\");
 %%% you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 %%%
    "},
    {rust_apache_license, "
-// Copyright (c) 2021 by Cam(yangcancai0112@gmail.com), All Rights Reserved.
+// Copyright (c) 2021 by <YourEmail>, All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the \"License\");
 // you may not use this file except in compliance with the License.
